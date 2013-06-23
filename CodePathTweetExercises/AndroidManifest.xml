@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codepath.apps.restclienttemplate"
+    package="com.codepath.apps.mytwitterapp"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.codepath.apps.restclienttemplate.RestClientApp"
+        android:name="com.codepath.apps.mytwitterapp.TwitterClientApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -25,7 +25,7 @@
             android:value="1" />
 
         <activity
-            android:name="com.codepath.apps.restclienttemplate.LoginActivity"
+            android:name="com.codepath.apps.mytwitterapp.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +42,14 @@
                     android:host="simpletwitter"
                     android:scheme="oauth" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.codepath.apps.mytwitterapp.TimelineActivity"
+            android:label="@string/title_activity_timeline" >
+        </activity>
+        <activity
+            android:name="com.codepath.apps.mytwitterapp.TweetActivity"
+            android:label="@string/title_activity_tweet" >
         </activity>
     </application>
 
