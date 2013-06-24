@@ -71,7 +71,7 @@ public class TweetActivity extends Activity {
 
 	private void pushTweetToServer() {
 		Toast.makeText(this, "Tweet Posted to Server", Toast.LENGTH_SHORT).show();
-		Intent i = new Intent(this, TimelineActivity.class);
+		Intent i = new Intent(this, TwitterActivity.class);
 		Tweet tweet = new Tweet();
 		tweet.setBody(etTweetBody.getText().toString());
 		tweet.postTweet();

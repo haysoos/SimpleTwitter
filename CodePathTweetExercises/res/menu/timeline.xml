@@ -17,7 +17,7 @@
         android:id="@+id/action_create"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:icon="@drawable/ic_action_edit"
+        android:icon="@drawable/ic_action_compose_tweet_dark"
         android:title="Create"/>
     
 </menu>
