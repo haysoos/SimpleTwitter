@@ -4,25 +4,28 @@ import java.util.List;
 
 import org.json.JSONArray;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 
+import com.codepath.apps.mytwitterapp.fragments.TweetsListFragment;
 import com.codepath.apps.mytwitterapp.models.Tweet;
-import com.codepath.apps.mytwitterapp.models.TweetsAdapter;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
-public class TimelineActivity extends Activity {
+public class TimelineActivity extends FragmentActivity {
 
+	TweetsListFragment fragmentTweets;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_timeline);
-		
+		fragmentTweets = 
+				(TweetsListFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentTweets);
+				
 		Tweet tweet = null;
 		if(savedInstanceState != null && savedInstanceState.containsKey("new_tweet")){
 			tweet = (Tweet)savedInstanceState.get("new_tweet");
@@ -36,16 +39,12 @@ public class TimelineActivity extends Activity {
 			
 			@Override
 			public void onSuccess(JSONArray jsonTweets){
-				
 				Log.d("DEBUG", jsonTweets.toString());
 				List<Tweet> tweets = Tweet.fromJson(jsonTweets);
 				if(tweet != null){
 					tweets.add(0, tweet);
 				}
-				ListView lvTweets = (ListView) findViewById(R.id.lvTweets);
-				TweetsAdapter adapter = new TweetsAdapter(getBaseContext(), tweets);
-				lvTweets.setAdapter(adapter);
-				
+				fragmentTweets.getAdapter().addAll(tweets);
 			}			
 		});
 	}

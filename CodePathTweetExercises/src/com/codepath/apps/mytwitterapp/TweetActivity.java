@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.codepath.apps.mytwitterapp.fragments.TweetsListFragment;
 import com.codepath.apps.mytwitterapp.models.Tweet;
 
 public class TweetActivity extends Activity {

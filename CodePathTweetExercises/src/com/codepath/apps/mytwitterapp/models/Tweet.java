@@ -16,9 +16,6 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 @Table(name = "Tweets")
 public class Tweet extends BaseModel implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3926017141139695871L;
 	private User user;
 	private String body;
@@ -50,7 +47,6 @@ public class Tweet extends BaseModel implements Serializable {
 	public static Tweet fromJson(JSONObject jsonObject) {
 		Tweet tweet = new Tweet();
 		try {
-			Log.d("DEBUG", "Trying to load tweet from jsonObject");
 			tweet.jsonObject = jsonObject;
 			tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
 			tweet.body = tweet.getString("text");

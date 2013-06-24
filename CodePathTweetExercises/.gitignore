@@ -2,3 +2,7 @@
 /gen
 .idea/*
 _site/*
+*.classpath
+*.prefs
+*.settings
+.classpath
